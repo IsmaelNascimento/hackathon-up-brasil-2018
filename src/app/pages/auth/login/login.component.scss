@@ -1,8 +1,15 @@
-.container {
-  background-color: #efefef;
-  height: 100%;
-  width: 100%;
+p-card {
+  ::ng-deep .ui-card {
+    background-color: #efefef !important;
+    height: 100%;
+    width: 100%;
+
+    ::ng-deep .ui-card-body {
+      padding: 0;
+    }
+  }
 }
+
 
 .example-spacer {
   flex: 1 1 auto;

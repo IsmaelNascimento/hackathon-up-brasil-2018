@@ -4,16 +4,20 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {NavbarComponent} from './layouts/navbar/navbar.component';
 import {NoneComponent} from './layouts/none/none.component';
+import {AuthGuard} from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: NavbarComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
         loadChildren: './pages/home/home.module#HomeModule',
+        data: {
+          title: 'Página Inicial'
+        }
       },
       {
         path: 'colaborador',
