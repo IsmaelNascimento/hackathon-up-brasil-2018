@@ -11,6 +11,9 @@ import {
   MatButtonModule,
   MatExpansionModule,
   MatInputModule,
+  MatHorizontalStepper,
+  MatVerticalStepper,
+  MatStep,
 } from '@angular/material';
 
 // PrimeNG
@@ -29,13 +32,19 @@ import {FieldsetModule} from 'primeng/fieldset';
     MatExpansionModule,
     MatInputModule,
     // PrimeNG
-    FieldsetModule
+    FieldsetModule,
+    //MatHorizontalStepper,
+    // MatVerticalStepper,
   ],
   exports: [
     ColaboradorFormComponent,
+    //MatHorizontalStepper,
+    //MatVerticalStepper,
   ],
   declarations: [
-    ColaboradorFormComponent
+    ColaboradorFormComponent,
+    //MatHorizontalStepper,
+    //MatVerticalStepper
   ]
 })
 export class ComponentsModule { }
