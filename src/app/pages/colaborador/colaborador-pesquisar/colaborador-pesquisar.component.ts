@@ -4,23 +4,17 @@ import { Component, OnInit } from '@angular/core';
 import {ColaboradorService} from '../../../services/colaborador.service';
 
 @Component({
-  selector: 'app-colaborador-pesquisar',
   templateUrl: './colaborador-pesquisar.component.html',
   styleUrls: ['./colaborador-pesquisar.component.scss']
 })
 export class ColaboradorPesquisarComponent implements OnInit {
 
+  protected colaboradores;
+
   constructor(protected colaboradorService: ColaboradorService) { }
 
   ngOnInit() {
-    this.colaboradorService.getColaboradores().subscribe(
-      (data) => {
-        console.log('deu', data);
-      },
-      err => {
-        console.error('err', err);
-      }
-    );
+
   }
 
 }

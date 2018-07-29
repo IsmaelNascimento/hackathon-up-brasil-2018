@@ -2,11 +2,13 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 // Locale
-import { registerLocaleData } from '@angular/common';
+import {registerLocaleData} from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import localePtExtra from '@angular/common/locales/extra/pt';
+
 registerLocaleData(localePt, localePtExtra);
 
 import {AppComponent} from './app.component';
@@ -22,12 +24,6 @@ import {
   MatListModule,
   MatButtonModule,
   MatExpansionModule,
-  MatVerticalStepper,
-  MatHorizontalStepper,
-  MatStep,
-} from '@angular/material';
-
-import {
   MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -64,8 +60,8 @@ import {AuthService} from './services/auth.service';
 import {ColaboradorService} from './services/colaborador.service';
 
 // Layout
-import { NavbarComponent } from './layouts/navbar/navbar.component';
-import { NoneComponent } from './layouts/none/none.component';
+import {NavbarComponent} from './layouts/navbar/navbar.component';
+import {NoneComponent} from './layouts/none/none.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +75,7 @@ import { NoneComponent } from './layouts/none/none.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    RouterModule,
     // Material:
     LayoutModule,
     MatToolbarModule,
@@ -130,9 +127,7 @@ import { NoneComponent } from './layouts/none/none.component';
     ColaboradorService,
   ],
   bootstrap: [AppComponent],
-  exports: [
-    
-  ]
+  exports: []
 })
 export class AppModule {
 }
