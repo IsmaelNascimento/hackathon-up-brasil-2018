@@ -3,7 +3,7 @@
   <div class="ui-g">
     <div class="ui-sm-12 ui-md-6 ui-lg-4">
       <mat-form-field>
-        <input matInput placeholder="Digite um termo para pesquisar...">
+        <input matInput placeholder="Digite um termo para pesquisar..." [(ngModel)]="filtro.geral">
       </mat-form-field>
     </div>
   </div>
@@ -19,36 +19,36 @@
 
       <div class="ui-sm-6 ui-md-4">
         <mat-form-field>
-          <input matInput placeholder="CPF">
+          <input matInput placeholder="CPF" [(ngModel)]="filtro.cpf">
         </mat-form-field>
       </div>
 
       <div class="ui-sm-6 ui-md-4">
         <mat-form-field>
-          <input matInput placeholder="Matricula">
+          <input matInput placeholder="Matricula"  [(ngModel)]="filtro.matricula">
         </mat-form-field>
       </div>
 
       <div class="ui-sm-12 ui-md-4">
         <mat-form-field>
-          <input matInput placeholder="Nome">
+          <input matInput placeholder="Nome"  [(ngModel)]="filtro.nome">
         </mat-form-field>
       </div>
       <div class="ui-sm-6 ui-md-4">
         <mat-form-field>
-          <input matInput placeholder="Status">
+          <input matInput placeholder="Status"  [(ngModel)]="filtro.status">
         </mat-form-field>
       </div>
 
       <div class="ui-sm-6 ui-md-4">
         <mat-form-field>
-          <input matInput placeholder="Produto">
+          <input matInput placeholder="Produto"  [(ngModel)]="filtro.produto">
         </mat-form-field>
       </div>
 
       <div class="ui-sm-12 ui-md-4">
         <mat-form-field>
-          <input matInput placeholder="Departamento">
+          <input matInput placeholder="Departamento"  [(ngModel)]="filtro.departamento">
         </mat-form-field>
       </div>
     </div>

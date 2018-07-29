@@ -20,6 +20,7 @@ import {MaterialModule} from './material/material.module';
 
 // Providers
 import {AuthService} from './services/auth.service';
+import {AuthGuard} from './guards/auth.guard';
 import {ColaboradorService} from './services/colaborador.service';
 
 // Layout
@@ -45,6 +46,7 @@ import {NoneComponent} from './layouts/none/none.component';
   ],
   providers: [
     AuthService,
+    AuthGuard,
     ColaboradorService,
   ],
   bootstrap: [AppComponent],
