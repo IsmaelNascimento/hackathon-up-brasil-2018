@@ -28,7 +28,7 @@ export class ColaboradorService {
         matricula: '880',
         departamento: 'Teste',
         produto: 'Alimentação Up Brasil',
-        datacriacao: '19/10/2018 09:45:28',
+        datacriacao: '19/10/2018',
         valor: 1.00,
         conta: 1925908
       },
@@ -39,7 +39,7 @@ export class ColaboradorService {
         matricula: '881',
         departamento: 'Teste',
         produto: 'Alimentação Up Brasil',
-        datacriacao: '19/10/2018 09:45:28',
+        datacriacao: '19/10/2018',
         valor: 10.00,
         conta: 1925904
       },
@@ -50,7 +50,7 @@ export class ColaboradorService {
         matricula: '882',
         departamento: 'Outro departamento',
         produto: 'Combustivel Up Brasil',
-        datacriacao: '20/10/2018 09:45:30',
+        datacriacao: '20/10/2018',
         valor: 100.00,
         conta: 1925910
       },
@@ -61,7 +61,7 @@ export class ColaboradorService {
         matricula: '883',
         departamento: 'Só mais um',
         produto: 'Combustivel Up Brasil',
-        datacriacao: '25/10/2018 09:45:30',
+        datacriacao: '25/10/2018',
         valor: 153.25,
         conta: 2025910
       },
@@ -72,7 +72,7 @@ export class ColaboradorService {
         matricula: '884',
         departamento: 'E mais um',
         produto: 'Combustivel Up Brasil',
-        datacriacao: '25/11/2018 09:45:30',
+        datacriacao: '25/11/2018',
         valor: 1153.25,
         conta: 3025910
       }
