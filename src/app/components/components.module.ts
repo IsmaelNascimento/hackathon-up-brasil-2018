@@ -14,6 +14,9 @@ import {
   MatHorizontalStepper,
   MatVerticalStepper,
   MatStep,
+  MatStepperModule,
+  MatOptionModule,
+  MatSelectModule,
 } from '@angular/material';
 
 // PrimeNG
@@ -33,6 +36,9 @@ import {FieldsetModule} from 'primeng/fieldset';
     MatInputModule,
     // PrimeNG
     FieldsetModule,
+    MatStepperModule,
+    MatOptionModule,
+    MatSelectModule
     //MatHorizontalStepper,
     // MatVerticalStepper,
   ],
