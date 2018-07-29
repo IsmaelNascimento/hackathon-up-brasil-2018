@@ -1,0 +1,54 @@
+@import '~@angular/material/theming';
+@import '../../../assets/themes/blue';
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  @include mat-elevation(2);
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+#container {
+  padding: 1vh 2vh;
+}
+
+mat-sidenav {
+  mat-nav-list {
+    @include mat-elevation-transition;
+
+    .mat-list-item.mat-list-item-active {
+      background-color: mat-color($restaurant-app-primary) !important;
+      color: #ffffff !important;
+      @include mat-elevation(4);
+
+      &:hover, &.mat-list-item-focus {
+        @include mat-elevation(6);
+      }
+    }
+
+    mat-expansion-panel {
+      @include mat-elevation(0);
+
+      mat-expansion-panel-header {
+        padding-left: 16px;
+      }
+
+      ::ng-deep .mat-expansion-panel-content {
+        ::ng-deep .mat-expansion-panel-body {
+          padding: 0 !important;
+
+          a {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
