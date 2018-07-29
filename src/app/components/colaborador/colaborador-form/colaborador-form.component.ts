@@ -9,6 +9,8 @@ export class ColaboradorFormComponent implements OnInit {
 
   constructor() { }
 
+  //isLinear = false;
+
   ngOnInit() {
   }
 
