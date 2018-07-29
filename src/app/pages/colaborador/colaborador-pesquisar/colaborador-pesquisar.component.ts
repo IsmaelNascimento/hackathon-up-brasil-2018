@@ -11,7 +11,7 @@ import {ColaboradorService} from '../../../services/colaborador.service';
 export class ColaboradorPesquisarComponent implements OnInit, AfterViewInit {
 
 
-  filtro: { nome?: string, restaurant?: number } = { nome: '' };
+  filtro: any = {};
   sort: { active?: string, direction?: string } = {};
 
   // Pratos
@@ -25,19 +25,57 @@ export class ColaboradorPesquisarComponent implements OnInit, AfterViewInit {
     }
     return this._colaboradores
       .filter(d => {
-        const check1 = (d.nome.toLowerCase().indexOf( this.filtro.nome.toLowerCase() ) >= 0);
-        let check2 = true;
-        if (this.filtro.restaurant) {
-          check2 = d.restaurantId == this.filtro.restaurant;
+        let check = true;
+        if ( this.filtro.hasOwnProperty('geral') ) {
+          check = check && (
+            (d.cpf.toLowerCase().indexOf( this.filtro.geral.toLowerCase() ) >= 0) ||
+            (d.nome.toLowerCase().indexOf( this.filtro.geral.toLowerCase() ) >= 0) ||
+            (d.status.toLowerCase().indexOf( this.filtro.geral.toLowerCase() ) >= 0) ||
+            (d.matricula.toLowerCase().indexOf( this.filtro.geral.toLowerCase() ) >= 0) ||
+            (d.departamento.toLowerCase().indexOf( this.filtro.geral.toLowerCase() ) >= 0) ||
+            (d.produto.toLowerCase().indexOf( this.filtro.geral.toLowerCase() ) >= 0) ||
+            (d.datacriacao.toLowerCase().indexOf( this.filtro.geral.toLowerCase() ) >= 0) ||
+            (d.valor == this.filtro.geral.toLowerCase()) ||
+            (d.conta == this.filtro.geral.toLowerCase())
+          );
         }
-        return check1 && check2;
+        if ( this.filtro.hasOwnProperty('cpf') ) {
+          check = check && (d.cpf.toLowerCase().indexOf( this.filtro.cpf.toLowerCase() ) >= 0);
+        }
+        if ( this.filtro.hasOwnProperty('nome') ) {
+          check = check && (d.nome.toLowerCase().indexOf( this.filtro.nome.toLowerCase() ) >= 0);
+        }
+        if ( this.filtro.hasOwnProperty('status') ) {
+          check = check && (d.status.toLowerCase().indexOf( this.filtro.status.toLowerCase() ) >= 0);
+        }
+        if ( this.filtro.hasOwnProperty('matricula') ) {
+          check = check && (d.matricula.toLowerCase().indexOf( this.filtro.matricula.toLowerCase() ) >= 0);
+        }
+        if ( this.filtro.hasOwnProperty('departamento') ) {
+          check = check && (d.departamento.toLowerCase().indexOf( this.filtro.departamento.toLowerCase() ) >= 0);
+        }
+        if ( this.filtro.hasOwnProperty('produto') ) {
+          check = check && (d.produto.toLowerCase().indexOf( this.filtro.produto.toLowerCase() ) >= 0);
+        }
+        return check;
       })
       .sort((a, b) => {
         if (!this.sort.active || this.sort.direction === '') {
           return false;
         }
         const isAsc = this.sort.direction === 'asc';
-        return false;
+        switch (this.sort.active) {
+          case 'cpf': return this.sortCompare(a.cpf, b.cpf, isAsc);
+          case 'nome': return this.sortCompare(a.nome, b.nome, isAsc);
+          case 'status': return this.sortCompare(a.status, b.status, isAsc);
+          case 'matricula': return this.sortCompare(a.matricula, b.matricula, isAsc);
+          case 'departamento': return this.sortCompare(a.departamento, b.departamento, isAsc);
+          case 'produto': return this.sortCompare(a.produto, b.produto, isAsc);
+          case 'datacriacao': return this.sortCompare(a.datacriacao, b.datacriacao, isAsc);
+          case 'valor': return this.sortCompare(a.valor, b.valor, isAsc);
+          case 'conta': return this.sortCompare(a.conta, b.conta, isAsc);
+          default: return 0;
+        }
       });
   }
 
@@ -46,9 +84,6 @@ export class ColaboradorPesquisarComponent implements OnInit, AfterViewInit {
   constructor(protected colaboradorService: ColaboradorService) { }
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit() {
     this.colaboradorService.getAll().subscribe(
       (data) => {
         this.colaboradores = data;
@@ -58,6 +93,9 @@ export class ColaboradorPesquisarComponent implements OnInit, AfterViewInit {
         console.error('Erro', err);
       }
     );
+  }
+
+  ngAfterViewInit() {
   }
 
   remove(dish) {
