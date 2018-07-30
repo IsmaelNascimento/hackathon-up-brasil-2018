@@ -1,5 +1,5 @@
 @import '~@angular/material/theming';
-@import '../../../assets/themes/blue';
+@import '../../../assets/themes/up';
 
 .sidenav-container {
   height: 100%;
@@ -19,9 +19,14 @@
   padding: 1vh 2vh;
 }
 
+#span-title {
+  color: #ffffff;
+}
+
 mat-sidenav {
 
   mat-toolbar {
+
     img {
       display: block;
       margin-left: auto;
